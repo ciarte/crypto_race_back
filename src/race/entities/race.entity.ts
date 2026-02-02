@@ -12,16 +12,16 @@ export class Player {
   @Column({ nullable: true })
   country: string;
 
-  @Column({ default: 1 })
+  @Column({ type: 'float', default: 1 })
   baseSpeed: number;
 
-  @Column({ default: 1 })
+  @Column({ type: 'float', default: 1 })
   resistance: number;
 
-  @Column({ default: 1 })
+  @Column({ type: 'float', default: 1 })
   powerUpDuration: number;
 
-  @Column({ default: 1 })
+  @Column({ type: 'float', default: 1 })
   miningPower: number;
 
   @Column({ default: 1 })
