@@ -64,7 +64,7 @@ async create(dto: CreateRaceDto): Promise<Player> {
     country: dto.country,
     baseSpeed: dto.baseSpeed ?? 1,
     resistance: dto.resistance ?? 0.05,
-    powerUpDuration: dto.powerDuration ?? 0.1,
+    powerUpDuration: dto.powerUpDuration ?? 0.1,
     miningPower: 0,
     level: 1,
   });
