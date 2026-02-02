@@ -20,5 +20,5 @@ export class CreateRaceDto {
 
   @Type(() => Number)
   @IsNumber()
-  powerDuration: number;
+  powerUpDuration: number;
 }
