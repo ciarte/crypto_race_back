@@ -6,6 +6,8 @@ import { BotFactoryService } from './dto/bots/bot_factory.service';
 import { DifficultyService } from './dto/difficulty/difficulty.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Player } from './entities/race.entity';
+import { Runner } from 'src/user/entities/runner.entity';
+import { UserRunner } from 'src/user_runner/entities/user-runner.entity';
 
 @Module({
   controllers: [RaceController],
@@ -13,6 +15,6 @@ import { Player } from './entities/race.entity';
     RaceEngineService,
     BotFactoryService,
     DifficultyService,],
-    imports: [TypeOrmModule.forFeature([Player])],
+  imports: [TypeOrmModule.forFeature([Player, Runner, UserRunner])],
 })
 export class RaceModule { }
