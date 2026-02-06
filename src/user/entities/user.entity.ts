@@ -4,23 +4,23 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany } f
 @Entity('users')
 export class User {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column({ unique: true })
-  email: string;
+  email!: string;
 
   @Column()
-  password: string;
+  password!: string;
 
   @Column({ type: 'float', default: 0 })
-  gameCoins: number;
+  gameCoins!: number;
 
   @Column({ type: 'float', default: 0 })
-  criptoCoin: number;
+  criptoCoin!: number;
 
   @OneToMany(() => UserRunner, ur => ur.user)
-  runners: UserRunner[];
+  runners!: UserRunner[];
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 }

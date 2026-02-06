@@ -4,21 +4,21 @@ import { Type } from 'class-transformer';
 export class CreateRaceDto {
   @IsString()
   @IsNotEmpty()
-  country: string;
+  country!: string;
 
   @IsString()
   @IsNotEmpty()
-  assetName: string;
+  assetName!: string;
 
   @Type(() => Number)
   @IsNumber()
-  baseSpeed: number;
+  baseSpeed!: number;
 
   @Type(() => Number)
   @IsNumber()
-  resistance: number;
+  resistance!: number;
 
   @Type(() => Number)
   @IsNumber()
-  powerUpDuration: number;
+  powerUpDuration!: number;
 }

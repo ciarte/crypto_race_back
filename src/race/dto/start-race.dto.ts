@@ -2,14 +2,14 @@ import { IsInt, Min, Max, IsPositive } from 'class-validator';
 
 export class StartRaceDto {
   @IsInt()
-  playerRaceId: number;
+  playerRaceId!: number;
 
   @IsInt()
   @Min(1)
   @Max(3)
-  botsCount: number;
+  botsCount!: number;
 
   @IsInt()
   @IsPositive()
-  raceIndex: number;
+  raceIndex!: number;
 }

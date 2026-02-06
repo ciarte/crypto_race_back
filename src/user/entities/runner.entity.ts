@@ -3,29 +3,29 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeor
 @Entity('runners')
 export class Runner {
     @PrimaryGeneratedColumn()
-    id: number;
+    id!: number;
 
     @Column()
-    name: string;
+    name!: string;
 
     @Column()
-    assetName: string;
+    assetName!: string;
 
     @Column({ type: 'float', default: 1 })
-    baseSpeed: number;
+    baseSpeed!: number;
 
     @Column({ type: 'float', default: 1 })
-    resistence: number;
+    resistence!: number;
 
     @Column({ type: 'float', default: 1 })
-    powerUpDuration: number;
+    powerUpDuration!: number;
 
     @Column({ type: 'float', default: 1 })
-    miningPower: number;
+    miningPower!: number;
 
     @Column({ type: 'float', default: 0 })
-    price: number;
+    price!: number;
 
     @CreateDateColumn()
-    createdAt: Date;
+    createdAt!: Date;
 }

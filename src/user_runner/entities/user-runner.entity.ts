@@ -5,36 +5,36 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne } f
 @Entity('user_runners')
 export class UserRunner {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @ManyToOne(() => User, user => user.runners)
-  user: User;
+  user!: User;
 
   @ManyToOne(() => Runner)
-  runner: Runner;
+  runner!: Runner;
 
   @Column({ default: 1 })
-  level: number;
+  level!: number;
 
   @Column({ default: 0 })
-  experience: number;
+  experience!: number;
 
  // stats dinámicas, que cambian con upgrades
   @Column({ type: 'float', default: 1 })
-  speed: number;
+  speed!: number;
 
   @Column({ type: 'float', default: 1 })
-  resistence: number;
+  resistence!: number;
 
   @Column({ type: 'float', default: 1 })
-  powerUpDuration: number;
+  powerUpDuration!: number;
 
   @Column({ type: 'float', default: 1 })
-  miningPower: number;
+  miningPower!: number;
 
   @Column({ default: true })
-  isActive: boolean;
+  isActive!: boolean;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 }
