@@ -29,13 +29,11 @@ export class AuthService {
 
   async login(dto: LoginDto) {
     const user = await this.userService.findByEmail(dto.email);
-     console.error('LOGIN USER:', user);
     if (!user) {
       throw new UnauthorizedException('Invalid credentials');
     }
 
     const valid = await bcrypt.compare(dto.password, user.password);
-      console.error('LOGIN VALID:', valid);
     if (!valid) {
       throw new UnauthorizedException('Invalid credentials');
     }
@@ -44,7 +42,6 @@ export class AuthService {
   }
 
   private buildSession(user: User) {
-      console.log('JWT_SECRET in buildSession:', process.env.JWT_SECRET);
     const token = this.jwtService.sign({
       sub: user.id,
       email: user.email,
