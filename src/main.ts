@@ -10,6 +10,7 @@ async function bootstrap() {
     forbidNonWhitelisted: true
   })
 );
+console.log('JWT_SECRET:', process.env.JWT_SECRET);
   await app.listen(3000, '0.0.0.0');
 }
 bootstrap();
