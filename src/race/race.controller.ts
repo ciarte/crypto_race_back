@@ -1,18 +1,15 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe, UseGuards, Req } from '@nestjs/common';
 import { RaceService } from './race.service';
 import { CreateRaceDto } from './dto/create-race.dto';
 import { UpdateRaceDto } from './dto/update-race.dto';
 import { StartRaceDto } from './dto/start-race.dto';
 import { Player } from './entities/race.entity';
+import { AuthGuard } from '@nestjs/passport';
+import { User } from 'src/user/entities/user.entity';
 
 @Controller('race')
 export class RaceController {
   constructor(private readonly raceService: RaceService) { }
-
-  @Post()
-  async create(@Body() createRaceDto: CreateRaceDto): Promise<Player> {
-    return await this.raceService.create(createRaceDto);
-  }
 
   @Post('start')
   async startRace(@Body() dto: StartRaceDto): Promise<any> {
@@ -22,6 +19,12 @@ export class RaceController {
   @Get()
   async findAll(): Promise<Player[]> {
     return this.raceService.findAll();
+  }
+
+  @UseGuards(AuthGuard('jwt'))
+  @Get('available')
+  async getAvailableRunners(@Req() req: Request & { user: User }) {
+    return this.raceService.getAvailableRunners(req.user);
   }
 
   @Get(':id')

@@ -3,6 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { RaceModule } from './race/race.module';
 import { UserModule } from './user/user.module';
 import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
+import { UserRunnerModule } from './user_runner/user_runner.module';
 
 @Module({
   imports: [
@@ -27,9 +29,10 @@ import { ConfigModule } from '@nestjs/config';
 
       logging: true,
     }),
-
     RaceModule,
     UserModule,
+    AuthModule,
+    UserRunnerModule,
   ],
 })
 export class AppModule { }
