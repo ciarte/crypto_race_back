@@ -16,7 +16,7 @@ export class UserRunnerService {
     private runnerRepo: Repository<Runner>,
   ) {}
 
-  async claimBasicRunner(user: User): Promise<UserRunner> {
+async claimBasicRunner(user: User): Promise<UserRunner> {
     const basicRunner = await this.runnerRepo.findOne({ where: { price: 0 } });
     if (!basicRunner) throw new NotFoundException('Basic runner not found');
 
@@ -30,6 +30,10 @@ export class UserRunnerService {
       runner: basicRunner,
       level: 1,
       experience: 0,
+      speed: basicRunner.baseSpeed,
+      resistence: basicRunner.resistence,
+      powerUpDuration: basicRunner.powerUpDuration,
+      miningPower: basicRunner.miningPower,
       isActive: true,
     });
 
